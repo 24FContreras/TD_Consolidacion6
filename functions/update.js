@@ -13,7 +13,7 @@ const updateAnime = async (id, data) => {
 
     return {
       ok: true,
-      status: 201,
+      status: 200,
       message: `Se ha modificado exitosamente el anime '${animeModificado.nombre}'`,
       data: anime[id],
     };
