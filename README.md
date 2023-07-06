@@ -8,6 +8,10 @@ Ejercicio de consolidación para el módulo N°6 de e-camp, becas Talento Digita
 - [Respuesta](#respuesta)
   - [Pruebas Locales](#pruebas-locales)
   - [Documentación de la API](#documentación-de-la-api)
+    - [GET](get)
+    - [POST](post)
+    - [PUT](put)
+    - [DELETE](delete)
 
 ## Requerimientos
 
@@ -41,7 +45,7 @@ La API construída tiene habilitada una única ruta /anime, con diferentes méto
 
 Retorna todas las series disponibles en formato JSON
 
-**Ejemplo de respuesta satisfactoria**
+**Ejemplo de respuesta satisfactoria (200)**
 /animes
 
 ```json
@@ -54,30 +58,6 @@ Retorna todas las series disponibles en formato JSON
       "genero": "Seinen",
       "año": "1988",
       "autor": "Katsuhiro Otomo"
-    },
-    "2": {
-      "nombre": "Dragon Ball",
-      "genero": "Shonen",
-      "año": "1986",
-      "autor": "Akira Toriyama"
-    },
-    "3": {
-      "nombre": "Sailor Moon",
-      "genero": "Shojo",
-      "año": "1992",
-      "autor": "Naoko Takeuchi"
-    },
-    "4": {
-      "nombre": "Naruto",
-      "genero": "Shonen",
-      "año": "2002",
-      "autor": "Masashi Kishimoto"
-    },
-    "5": {
-      "nombre": "Neon Genesis Evangelion",
-      "genero": "Mecha",
-      "año": "1995",
-      "autor": "Yoshiyuki Sadamoto"
     }
   }
 }
@@ -140,6 +120,127 @@ Retorna la serie seleccionada en formato JSON. El nombre no es sensible a mayús
 
 **Ejemplo de respuesta insatisfactoria (404)**
 /animes?nombre=no existo
+
+```json
+{
+  "ok": false,
+  "status": 404,
+  "message": "El anime seleccionado no existe"
+}
+```
+
+#### POST
+
+##### POST /animes
+
+Crea una nueva serie en el archivo JSON, retornando el nuevo objeto más su id
+
+**Ejemplo de respuesta satisfactoria (200)**
+/animes
+
+```json
+{
+  "ok": true,
+  "status": 201,
+  "message": "Anime creado exitosamente!",
+  "data": {
+    "id": "d9844ee0-6411-4c40-9b9b-47e24fe08138",
+    "nombre": "Daiya no Ace",
+    "genero": "Shōnen",
+    "año": "2013",
+    "autor": "Terajima Yuji"
+  }
+}
+```
+
+---
+
+**Ejemplo de respuesta insatisfactoria: Petición sin body (400)**
+
+```json
+{
+  "ok": false,
+  "status": 400,
+  "message": "La petición debe contener un body"
+}
+```
+
+---
+
+**Ejemplo de respuesta insatisfactoria: Petición con body sin contenido (400)**
+
+```json
+{
+  "ok": false,
+  "status": 400,
+  "message": "El body de la petición debe tener contenido"
+}
+```
+
+#### PUT
+
+##### PUT /animes?id={id}
+
+Modifica la serie seleccionada, retornando la serie actualizada. Requiere el parámetro de consulta id
+
+**Ejemplo de respuesta satisfactoria (200)**
+/animes?id=5
+
+```json
+{
+  "ok": true,
+  "status": 200,
+  "message": "Se ha modificado exitosamente el anime 'Neon Genesis Evangelion'",
+  "data": {
+    "nombre": "Neon Genesis Evangelion",
+    "genero": "Mecha",
+    "año": "1995",
+    "autor": "Yoshiyuki Sadamoto",
+    "Shinji pilotea el Eva": "o Rei tendrá que hacerlo"
+  }
+}
+```
+
+---
+
+**Ejemplo de respuesta insatisfactoria (404)**
+/animes?id=500
+
+```json
+{
+  "ok": false,
+  "status": 404,
+  "message": "El anime seleccionado no existe"
+}
+```
+
+#### DELETE
+
+##### DELETE /animes?id={id}
+
+Elimina del archivo JSON la serie seleccionada, retornando los datos eliminados. Requiere el parámetro de consulta id
+
+**Ejemplo de respuesta satisfactoria (200)**
+/animes?id=5
+
+```json
+{
+  "ok": true,
+  "status": 200,
+  "message": "Se ha eliminado exitosamente el animé 'Neon Genesis Evangelion'",
+  "erasedData": {
+    "nombre": "Neon Genesis Evangelion",
+    "genero": "Mecha",
+    "año": "1995",
+    "autor": "Yoshiyuki Sadamoto"
+  }
+}
+```
+
+---
+
+**Ejemplo de respuesta insatisfactoria (404)**
+/animes?id=500
 
 ```json
 {
