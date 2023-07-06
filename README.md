@@ -46,6 +46,7 @@ La API construída tiene habilitada una única ruta /anime, con diferentes méto
 Retorna todas las series disponibles en formato JSON
 
 <br>
+
 **Ejemplo de respuesta satisfactoria (200)**
 
 /animes
@@ -71,6 +72,7 @@ Retorna todas las series disponibles en formato JSON
 
 Retorna la serie seleccionada en formato JSON
 <br>
+
 **Ejemplo de respuesta satisfactoria (200)**
 
 /animes?id=2
@@ -89,6 +91,7 @@ Retorna la serie seleccionada en formato JSON
 ```
 
 <br>
+
 **Ejemplo de respuesta insatisfactoria (404)**
 
 /animes?id=200
@@ -106,7 +109,9 @@ Retorna la serie seleccionada en formato JSON
 #### GET /animes?nombre={nombre}
 
 Retorna la serie seleccionada en formato JSON. El nombre no es sensible a mayúsculas
+
 <br>
+
 **Ejemplo de respuesta satisfactoria (200)**
 
 /animes?nombre=neon genesis evangelion
@@ -125,6 +130,7 @@ Retorna la serie seleccionada en formato JSON. El nombre no es sensible a mayús
 ```
 
 <br><br>
+
 **Ejemplo de respuesta insatisfactoria (404)**
 
 /animes?nombre=no existo
@@ -146,6 +152,7 @@ Retorna la serie seleccionada en formato JSON. El nombre no es sensible a mayús
 Crea una nueva serie en el archivo JSON, retornando el nuevo objeto más su id
 
 <br>
+
 **Ejemplo de respuesta satisfactoria (201)**
 
 ```json
@@ -164,6 +171,7 @@ Crea una nueva serie en el archivo JSON, retornando el nuevo objeto más su id
 ```
 
 <br>
+
 **Ejemplo de respuesta insatisfactoria: Petición sin body (400)**
 
 ```json
@@ -175,6 +183,7 @@ Crea una nueva serie en el archivo JSON, retornando el nuevo objeto más su id
 ```
 
 <br><br>
+
 **Ejemplo de respuesta insatisfactoria: Petición con body sin contenido (400)**
 
 ```json
@@ -214,7 +223,9 @@ Modifica la serie seleccionada, retornando la serie actualizada. Requiere el par
 ```
 
 <br>
+
 **Ejemplo de respuesta insatisfactoria (404)**
+
 /animes?id=500
 
 ```json
@@ -252,6 +263,7 @@ Elimina del archivo JSON la serie seleccionada, retornando los datos eliminados.
 ```
 
 <br>
+
 **Ejemplo de respuesta insatisfactoria (404)**
 
 /animes?id=500
