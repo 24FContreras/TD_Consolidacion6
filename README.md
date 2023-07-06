@@ -39,13 +39,15 @@ Para probar en local, seguir los siguientes pasos:
 
 La API construída tiene habilitada una única ruta /anime, con diferentes métodos y parmámetros
 
-#### GET
+### GET
 
-##### GET /animes
+#### GET /animes
 
 Retorna todas las series disponibles en formato JSON
 
+<br>
 **Ejemplo de respuesta satisfactoria (200)**
+
 /animes
 
 ```json
@@ -63,13 +65,14 @@ Retorna todas las series disponibles en formato JSON
 }
 ```
 
----
+<br>
 
-##### GET /animes?id={id}
+#### GET /animes?id={id}
 
 Retorna la serie seleccionada en formato JSON
-
+<br>
 **Ejemplo de respuesta satisfactoria (200)**
+
 /animes?id=2
 
 ```json
@@ -85,7 +88,9 @@ Retorna la serie seleccionada en formato JSON
 }
 ```
 
+<br>
 **Ejemplo de respuesta insatisfactoria (404)**
+
 /animes?id=200
 
 ```json
@@ -96,13 +101,14 @@ Retorna la serie seleccionada en formato JSON
 }
 ```
 
----
+<br>
 
-##### GET /animes?nombre={nombre}
+#### GET /animes?nombre={nombre}
 
 Retorna la serie seleccionada en formato JSON. El nombre no es sensible a mayúsculas
-
+<br>
 **Ejemplo de respuesta satisfactoria (200)**
+
 /animes?nombre=neon genesis evangelion
 
 ```json
@@ -118,7 +124,9 @@ Retorna la serie seleccionada en formato JSON. El nombre no es sensible a mayús
 }
 ```
 
+<br><br>
 **Ejemplo de respuesta insatisfactoria (404)**
+
 /animes?nombre=no existo
 
 ```json
@@ -129,14 +137,16 @@ Retorna la serie seleccionada en formato JSON. El nombre no es sensible a mayús
 }
 ```
 
-#### POST
+---
 
-##### POST /animes
+### POST
+
+#### POST /animes
 
 Crea una nueva serie en el archivo JSON, retornando el nuevo objeto más su id
 
-**Ejemplo de respuesta satisfactoria (200)**
-/animes
+<br>
+**Ejemplo de respuesta satisfactoria (201)**
 
 ```json
 {
@@ -153,8 +163,7 @@ Crea una nueva serie en el archivo JSON, retornando el nuevo objeto más su id
 }
 ```
 
----
-
+<br>
 **Ejemplo de respuesta insatisfactoria: Petición sin body (400)**
 
 ```json
@@ -165,8 +174,7 @@ Crea una nueva serie en el archivo JSON, retornando el nuevo objeto más su id
 }
 ```
 
----
-
+<br><br>
 **Ejemplo de respuesta insatisfactoria: Petición con body sin contenido (400)**
 
 ```json
@@ -177,13 +185,17 @@ Crea una nueva serie en el archivo JSON, retornando el nuevo objeto más su id
 }
 ```
 
+---
+
 #### PUT
 
 ##### PUT /animes?id={id}
 
 Modifica la serie seleccionada, retornando la serie actualizada. Requiere el parámetro de consulta id
+<br><br>
 
 **Ejemplo de respuesta satisfactoria (200)**
+
 /animes?id=5
 
 ```json
@@ -201,8 +213,7 @@ Modifica la serie seleccionada, retornando la serie actualizada. Requiere el par
 }
 ```
 
----
-
+<br>
 **Ejemplo de respuesta insatisfactoria (404)**
 /animes?id=500
 
@@ -213,14 +224,17 @@ Modifica la serie seleccionada, retornando la serie actualizada. Requiere el par
   "message": "El anime seleccionado no existe"
 }
 ```
+---
 
 #### DELETE
 
 ##### DELETE /animes?id={id}
 
 Elimina del archivo JSON la serie seleccionada, retornando los datos eliminados. Requiere el parámetro de consulta id
+<br><br>
 
 **Ejemplo de respuesta satisfactoria (200)**
+
 /animes?id=5
 
 ```json
@@ -237,9 +251,9 @@ Elimina del archivo JSON la serie seleccionada, retornando los datos eliminados.
 }
 ```
 
----
-
+<br>
 **Ejemplo de respuesta insatisfactoria (404)**
+
 /animes?id=500
 
 ```json
