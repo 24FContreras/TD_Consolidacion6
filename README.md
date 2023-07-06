@@ -8,10 +8,10 @@ Ejercicio de consolidación para el módulo N°6 de e-camp, becas Talento Digita
 - [Respuesta](#respuesta)
   - [Pruebas Locales](#pruebas-locales)
   - [Documentación de la API](#documentación-de-la-api)
-    - [GET](get)
-    - [POST](post)
-    - [PUT](put)
-    - [DELETE](delete)
+    - [GET](#get)
+    - [POST](#post)
+    - [PUT](#put)
+    - [DELETE](#delete)
 
 ## Requerimientos
 
