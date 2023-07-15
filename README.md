@@ -37,7 +37,7 @@ Para probar en local, seguir los siguientes pasos:
 
 ### Documentación de la API
 
-La API construída tiene habilitada una única ruta /anime, con diferentes métodos y parmámetros
+La API construída tiene habilitada una única ruta /anime, con diferentes métodos y parámetros
 
 ### GET
 
@@ -235,6 +235,7 @@ Modifica la serie seleccionada, retornando la serie actualizada. Requiere el par
   "message": "El anime seleccionado no existe"
 }
 ```
+
 ---
 
 #### DELETE
